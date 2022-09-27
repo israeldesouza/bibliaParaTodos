@@ -8,6 +8,10 @@ const routes: Routes = [
 		path: '',
 		loadChildren: () => HomeModule,
 	},
+	{
+		path: '**',
+		redirectTo: '',
+	},
 ];
 
 @NgModule({
