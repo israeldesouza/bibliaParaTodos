@@ -1,0 +1,30 @@
+<div class="book {{ themeService.getTheme() | async }}" *ngIf="book">
+	<div>
+		<p class="book-name">
+			<span class="name">
+				{{ book.name }}
+			</span>
+		</p>
+		<p class="book-name">
+			<span>
+				Capítulo {{ bookSelected.chapter ? bookSelected.chapter + 1 : 0 + 1 }}
+			</span>
+		</p>
+
+		<p
+			class="verse"
+			*ngFor="let verse of book.chapter; let i = index"
+			[id]="book.name + i"
+			[ngStyle]="{ 'font-size': bookSelected.size + 'px' }"
+		>
+			{{ i + 1 }}. {{ verse.verse }}
+		</p>
+	</div>
+</div>
+
+<app-menu
+	[menuBiblia]="menuBiblia"
+	[livroSelected]="bookSelected"
+	(onSelectedLivro)="getBook($event)"
+	(onChangeFontSize)="bookChangeSelectedSize($event)"
+></app-menu>

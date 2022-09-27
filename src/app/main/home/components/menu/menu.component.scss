@@ -1,0 +1,175 @@
+@import '../../../../../scss/colors.scss';
+
+$menu-size: 16rem;
+
+.livros {
+	width: 0;
+	position: fixed;
+
+	top: 14rem;
+	right: -1px;
+
+	height: 20.59rem;
+
+	border-radius: 24px 0 0 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	ul {
+		li {
+			padding: 0.5rem 1rem;
+			color: $light-mode-color;
+			font-weight: 400;
+			cursor: pointer;
+
+			&.active {
+				background-color: $dark-mode-hove-color;
+			}
+		}
+
+		li:hover {
+			background-color: $dark-mode-hove-color;
+		}
+	}
+
+	background-color: $info-color;
+
+	transition-duration: 0.3s;
+	transition-property: transform;
+
+	&.dark {
+		background-color: $dark-mode-menu-color;
+	}
+
+	&.expanded-menu {
+		width: $menu-size;
+		transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+	}
+
+	transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.livros::-webkit-scrollbar {
+	width: 4px;
+}
+
+.livros::-webkit-scrollbar-thumb {
+	background: $light-mode-color;
+}
+
+.btn-mobile {
+	width: 3rem;
+	height: 3rem;
+
+	display: flex;
+	padding-left: 1rem;
+	align-items: center;
+
+	border-radius: 24px 0 0 24px;
+
+	position: fixed;
+
+	bottom: 4rem;
+	right: -1px;
+
+	p {
+		margin-left: 0.5rem;
+		color: $light-mode-color;
+		font-weight: 500;
+	}
+
+	background-color: $info-color;
+
+	cursor: pointer;
+	transition-duration: 0.3s;
+	transition-property: transform;
+
+	&.dark {
+		background-color: $dark-mode-menu-color;
+	}
+
+	&.expanded-menu {
+		width: $menu-size;
+		border-radius: 0 0 0 24px;
+		transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+	}
+
+	transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+
+	.arrow-rigth {
+		margin-left: 8rem;
+	}
+}
+
+.btn-back {
+	position: fixed;
+
+	width: 0;
+	top: 11rem;
+	right: -1rem;
+
+	height: 3rem;
+
+	display: flex;
+	padding: 0 0.5rem;
+	align-items: center;
+
+	transition-duration: 0.3s;
+	transition-property: transform;
+
+	cursor: pointer;
+
+	p {
+		margin-left: 0.5rem;
+		color: $light-mode-color;
+		font-weight: 500;
+	}
+
+	border-radius: 24px 0 0 0;
+	background-color: $info-color;
+
+	&.dark {
+		background-color: $dark-mode-menu-color;
+	}
+
+	&.expanded-menu {
+		width: 7rem;
+		transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+	}
+	transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.btn {
+	position: fixed;
+	cursor: pointer;
+
+	background: rgb(215 212 212 / 10%);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 2.5rem;
+	height: 2.5rem;
+
+	border-radius: 50%;
+	right: 0.5rem;
+
+	font-weight: 600;
+
+	&.dark {
+		color: $light-mode-color;
+	}
+
+	&.theme {
+		top: 1rem;
+	}
+
+	&.plus {
+		top: 5rem;
+	}
+
+	&.anyLess {
+		top: 8rem;
+	}
+}

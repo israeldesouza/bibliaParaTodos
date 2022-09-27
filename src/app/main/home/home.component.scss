@@ -1,0 +1,25 @@
+@import '../../../scss/colors.scss';
+
+.book {
+	display: flex;
+	justify-content: center;
+
+	&.dark {
+		color: $light-mode-color;
+	}
+
+	div {
+		.book-name {
+			text-align: center;
+
+			.name {
+				margin-top: 1rem;
+				font-size: 2.5rem;
+			}
+		}
+
+		.verse {
+			padding: 0.1rem 3rem 0.1rem 0.5rem;
+		}
+	}
+}

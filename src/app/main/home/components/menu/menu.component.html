@@ -1,0 +1,73 @@
+<div class="menu-rigth">
+	<div
+		class="livros"
+		[ngClass]="{ dark: theme === 'dark', 'expanded-menu': expanded }"
+	>
+		<ul *ngIf="!btnBack">
+			<ng-container *ngFor="let livro of menuBiblia">
+				<li
+					(click)="selectBook(livro.livro)"
+					[ngClass]="{ active: livro.livro === livroSelected.livro }"
+				>
+					{{ livro.livro }}
+				</li>
+			</ng-container>
+		</ul>
+		<ul *ngIf="btnBack">
+			<ng-container *ngFor="let chapter of chapters">
+				<li
+					[ngClass]="{
+						active: chapter.chapterNumber === livroSelected.chapter
+					}"
+					(click)="selectChapter(chapter.chapterNumber)"
+				>
+					Capítulo {{ chapter.chapterNumber + 1 }}
+				</li>
+			</ng-container>
+		</ul>
+	</div>
+	<div
+		class="btn-mobile"
+		[ngClass]="{ dark: theme === 'dark', 'expanded-menu': expanded }"
+		(click)="expandedMenu()"
+	>
+		<img src="../../../../../assets/icons/book.svg" alt="Book image" />
+		<p>Livros</p>
+		<img
+			class="arrow-rigth"
+			src="../../../../../assets/icons/caret-double-right-bold.svg"
+			alt="Book image"
+		/>
+	</div>
+
+	<div
+		class="btn-back"
+		[ngClass]="{
+			dark: theme === 'dark',
+			'expanded-menu': expanded && btnBack
+		}"
+		(click)="comeBack()"
+	>
+		<img src="../../../../../assets/icons/caret-left-bold.svg" alt="back" />
+		<p>Voltar</p>
+	</div>
+</div>
+
+<div
+	class="btn theme"
+	*ngIf="theme === 'ligth'"
+	(click)="changeTheme(eTheme.DARK)"
+>
+	<img src="../../../../../assets/icons/moon.svg" alt="Theme dark" />
+</div>
+
+<div
+	class="btn theme"
+	*ngIf="theme === 'dark'"
+	(click)="changeTheme(eTheme.LIGTH)"
+>
+	<img src="../../../../../assets/icons/sun.svg" alt="Theme dark" />
+</div>
+
+<div class="btn plus {{ theme }}" (click)="plusSize()">A+</div>
+<div class="btn anyLess {{ theme }}" (click)="anyLessSize()">a-</div>
