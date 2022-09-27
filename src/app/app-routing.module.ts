@@ -13,6 +13,10 @@ const routes: Routes = [
 		path: 'main',
 		loadChildren: () => HomeModule,
 	},
+	{
+		path: '*',
+		redirectTo: 'main',
+	},
 ];
 
 @NgModule({
