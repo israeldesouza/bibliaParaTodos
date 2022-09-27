@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1664286879612,
+  "timestamp": 1664287094863,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -68,7 +68,7 @@
     "/assets/icons/sun.svg": "8acfdf0c508739c848f699d311eadd4f496f35f1",
     "/assets/menuBiblia.json": "7526687c94c2b975608701692ff452c0f53f5ec0",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "2a9da9369ace391a6bb53c790b7372a7c3b799a2",
+    "/index.html": "f3b28fbda48c1b3073c6171567293b164bb31839",
     "/main.1232d364de5f77b1.js": "0c3fef5c43b4e9f8b6ce5a999997e8e4791bd982",
     "/manifest.webmanifest": "a1688260f999671e25f8654af8659ec6ac6c45e4",
     "/polyfills.abb180958462d880.js": "cf4e13994b93ce41fa796c27a2237c6a1fe17059",
