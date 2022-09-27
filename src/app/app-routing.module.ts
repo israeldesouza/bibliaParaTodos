@@ -14,7 +14,7 @@ const routes: Routes = [
 		loadChildren: () => HomeModule,
 	},
 	{
-		path: '*',
+		path: '**',
 		redirectTo: 'main',
 	},
 ];
