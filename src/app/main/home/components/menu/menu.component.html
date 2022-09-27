@@ -31,11 +31,11 @@
 		[ngClass]="{ dark: theme === 'dark', 'expanded-menu': expanded }"
 		(click)="expandedMenu()"
 	>
-		<img src="../../../../../assets/img/book.svg" alt="Book image" />
+		<img src="assets/img/book.svg" alt="Book image" />
 		<p>Livros</p>
 		<img
 			class="arrow-rigth"
-			src="../../../../../assets/img/caret-double-right-bold.svg"
+			src="assets/img/caret-double-right-bold.svg"
 			alt="Book image"
 		/>
 	</div>
@@ -48,7 +48,7 @@
 		}"
 		(click)="comeBack()"
 	>
-		<img src="../../../../../assets/img/caret-left-bold.svg" alt="back" />
+		<img src="assets/img/caret-left-bold.svg" alt="back" />
 		<p>Voltar</p>
 	</div>
 </div>
@@ -58,7 +58,7 @@
 	*ngIf="theme === 'ligth'"
 	(click)="changeTheme(eTheme.DARK)"
 >
-	<img src="../../../../../assets/img/moon.svg" alt="Theme dark" />
+	<img src="assets/img/moon.svg" alt="Theme dark" />
 </div>
 
 <div
@@ -66,7 +66,7 @@
 	*ngIf="theme === 'dark'"
 	(click)="changeTheme(eTheme.LIGTH)"
 >
-	<img src="../../../../../assets/img/sun.svg" alt="Theme dark" />
+	<img src="assets/img/sun.svg" alt="Theme dark" />
 </div>
 
 <div class="btn plus {{ theme }}" (click)="plusSize()">A+</div>
