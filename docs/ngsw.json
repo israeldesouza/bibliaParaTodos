@@ -29,22 +29,22 @@
         "ignoreVary": true
       },
       "urls": [
-        "/assets/biblia.json",
-        "/assets/icons/book.svg",
-        "/assets/icons/caret-double-right-bold.svg",
-        "/assets/icons/caret-left-bold.svg",
-        "/assets/icons/icon-128x128.png",
-        "/assets/icons/icon-144x144.png",
-        "/assets/icons/icon-152x152.png",
-        "/assets/icons/icon-192x192.png",
-        "/assets/icons/icon-384x384.png",
-        "/assets/icons/icon-512x512.png",
-        "/assets/icons/icon-72x72.png",
-        "/assets/icons/icon-96x96.png",
-        "/assets/icons/icon.png",
-        "/assets/icons/moon.svg",
-        "/assets/icons/sun.svg",
-        "/assets/menuBiblia.json"
+        "/bibliaParaTodos/assets/biblia.json",
+        "/bibliaParaTodos/assets/icons/book.svg",
+        "/bibliaParaTodos/assets/icons/caret-double-right-bold.svg",
+        "/bibliaParaTodos/assets/icons/caret-left-bold.svg",
+        "/bibliaParaTodos/assets/icons/icon-128x128.png",
+        "/bibliaParaTodos/assets/icons/icon-144x144.png",
+        "/bibliaParaTodos/assets/icons/icon-152x152.png",
+        "/bibliaParaTodos/assets/icons/icon-192x192.png",
+        "/bibliaParaTodos/assets/icons/icon-384x384.png",
+        "/bibliaParaTodos/assets/icons/icon-512x512.png",
+        "/bibliaParaTodos/assets/icons/icon-72x72.png",
+        "/bibliaParaTodos/assets/icons/icon-96x96.png",
+        "/bibliaParaTodos/assets/icons/icon.png",
+        "/bibliaParaTodos/assets/icons/moon.svg",
+        "/bibliaParaTodos/assets/icons/sun.svg",
+        "/bibliaParaTodos/assets/menuBiblia.json"
       ],
       "patterns": []
     }
