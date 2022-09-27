@@ -7,6 +7,11 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
 	{
 		path: '',
+		pathMatch: 'full',
+		redirectTo: 'biblia',
+	},
+	{
+		path: 'biblia',
 		resolve: {
 			menuBiblia: HomeResolve,
 		},

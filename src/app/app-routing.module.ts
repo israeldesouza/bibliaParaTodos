@@ -6,16 +6,7 @@ import { HomeModule } from './main/home/home.module';
 const routes: Routes = [
 	{
 		path: '',
-		pathMatch: 'full',
-		redirectTo: 'main',
-	},
-	{
-		path: 'main',
 		loadChildren: () => HomeModule,
-	},
-	{
-		path: '**',
-		redirectTo: 'main',
 	},
 ];
 
