@@ -109,6 +109,16 @@
           "options": {
             "browserTarget": "bibliaDeTodos:build"
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "bibliaDeTodos:build:production",
+            "firebaseProject": "abibliadetodos",
+            "firebaseHostingSite": "abibliadetodos"
+          }
         }
       }
     }

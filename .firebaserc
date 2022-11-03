@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "bibliadetodos-96385"
+    "default": "abibliadetodos"
+  },
+  "targets": {
+    "abibliadetodos": {
+      "hosting": {
+        "bibliaDeTodos": [
+          "abibliadetodos"
+        ]
+      }
+    }
   }
 }
