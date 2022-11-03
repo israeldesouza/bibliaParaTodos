@@ -7,10 +7,11 @@ import { HomeComponent } from './home.component';
 import { BibliaService } from '../../shared/services/biblia.service';
 import { HomeResolve } from './home.resolve';
 import { MenuComponent } from './components/menu/menu.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [HomeComponent, MenuComponent],
-	imports: [CommonModule, HttpClientModule, HomeRoutingModule],
+	imports: [CommonModule, HttpClientModule, FormsModule, HomeRoutingModule],
 	providers: [HomeResolve, BibliaService],
 })
 export class HomeModule {}

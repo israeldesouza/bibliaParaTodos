@@ -1,11 +1,12 @@
 import {
 	Component,
 	EventEmitter,
-	HostListener,
 	Input,
 	Output,
+	OnInit,
+	OnDestroy,
 } from '@angular/core';
-import { throwError } from 'rxjs';
+import { debounceTime, Subject, Subscription } from 'rxjs';
 
 import { ETheme } from 'src/app/shared/enum/theme-enum';
 import {
@@ -20,7 +21,9 @@ import { IChapter } from './../../../../shared/models/menu-biblia.interface';
 	templateUrl: './menu.component.html',
 	styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit, OnDestroy {
+	private _subs: Subscription[] = [];
+
 	theme: ETheme = ETheme.LIGTH;
 	@Input() menuBiblia: IMenuBiblia[] = [];
 	chapters: IChapter[] = [];
@@ -31,6 +34,8 @@ export class MenuComponent {
 	@Output() onSelectedLivro = new EventEmitter<ILivroSelected>();
 	@Output() onChangeFontSize = new EventEmitter<number>();
 
+	private _debounceSearch: Subject<string> = new Subject<string>();
+
 	@Input() livroSelected: ILivroSelected = {
 		livro: null,
 		chapter: null,
@@ -38,16 +43,29 @@ export class MenuComponent {
 		size: 16,
 	};
 
-	expanded = false;
-	btnBack = false;
+	expanded: boolean = false;
+	showCapters: boolean = false;
+	private _searchText!: string;
 
 	maxFontSize = 24;
 
 	constructor(private _themeService: ThemeService) {
 		_themeService.getTheme().subscribe({
 			next: (res: ETheme) => (this.theme = res),
-			error: (e) => throwError('Get theme not found!!!'),
+			error: (e) => console.error('Get theme not found!!!'),
 		});
+	}
+
+	ngOnInit(): void {
+		this._subs.push(
+			this._debounceSearch
+				.pipe(debounceTime(800))
+				.subscribe((value) => (this._searchText = value))
+		);
+	}
+
+	ngOnDestroy(): void {
+		this._subs.forEach((subs) => subs.unsubscribe());
 	}
 
 	public expandedMenu(): void {
@@ -55,11 +73,10 @@ export class MenuComponent {
 	}
 
 	public selectBook(livro: string): void {
-		if (!livro) return;
-
 		this.livroSelected = {
+			chapter:
+				this.livroSelected.livro === livro ? this.livroSelected.chapter : 0,
 			livro,
-			chapter: null,
 			verse: null,
 			size: this.livroSelected.size,
 		};
@@ -69,7 +86,7 @@ export class MenuComponent {
 
 		this.onSelectedLivro.next(this.livroSelected);
 
-		this.btnBack = true;
+		this.showCapters = true;
 	}
 
 	public selectChapter(chapter: number): void {
@@ -89,18 +106,7 @@ export class MenuComponent {
 	}
 
 	public comeBack(): void {
-		this.btnBack = false;
-	}
-
-	@HostListener('document:click', ['$event'])
-	clickout(event: any): void {
-		if (
-			!event.path.some((element: HTMLElement) =>
-				element?.className?.includes('menu-rigth')
-			)
-		) {
-			this.expanded = false;
-		}
+		this.showCapters = false;
 	}
 
 	public changeTheme(newTheme: ETheme) {
@@ -119,5 +125,18 @@ export class MenuComponent {
 		this.livroSelected.size -= 1;
 
 		this.onChangeFontSize.emit(this.livroSelected.size);
+	}
+
+	public searchBooks(event: any): void {
+		this._debounceSearch.next(event.value);
+	}
+
+	public filterBooks(): IMenuBiblia[] {
+		if (!this._searchText) return this.menuBiblia;
+		return this.menuBiblia.filter((book) =>
+			book.livro
+				.toLocaleUpperCase()
+				.includes(this._searchText.toLocaleUpperCase())
+		);
 	}
 }

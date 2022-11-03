@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1667310739936,
+  "timestamp": 1667499245613,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.2927760b01cc43a9.js",
+        "/main.4375af8b2d1d5953.js",
         "/manifest.webmanifest",
         "/polyfills.abb180958462d880.js",
         "/runtime.adcb86ccc5605af3.js",
-        "/styles.5716664aa6d87d93.css"
+        "/styles.de25103ce6f57c3b.css"
       ],
       "patterns": []
     },
@@ -32,6 +32,7 @@
         "/assets/biblia.json",
         "/assets/img/book.svg",
         "/assets/img/caret-double-right-bold.svg",
+        "/assets/img/caret-left-bold-ligth.svg",
         "/assets/img/caret-left-bold.svg",
         "/assets/img/icon-128x128.png",
         "/assets/img/icon-144x144.png",
@@ -42,6 +43,9 @@
         "/assets/img/icon-72x72.png",
         "/assets/img/icon-96x96.png",
         "/assets/img/icon.png",
+        "/assets/img/mark.svg",
+        "/assets/img/menu_open_black.svg",
+        "/assets/img/menu_open_ligth.svg",
         "/assets/img/moon.svg",
         "/assets/img/sun.svg",
         "/assets/menuBiblia.json"
@@ -54,7 +58,8 @@
     "/assets/biblia.json": "03b6b86c0ad58fea63cf7582961bfdf0346c0e56",
     "/assets/img/book.svg": "7ecadec1cbe8d3e80c847a0bea20d3ce083a750f",
     "/assets/img/caret-double-right-bold.svg": "debaf347c2e0a299d8ec177396d583f5b6575d79",
-    "/assets/img/caret-left-bold.svg": "52545b1d48cf771884ae9f1f8b6349b50f9f86d0",
+    "/assets/img/caret-left-bold-ligth.svg": "52545b1d48cf771884ae9f1f8b6349b50f9f86d0",
+    "/assets/img/caret-left-bold.svg": "8e37e5b31848dce7665175fa7d7e07e7ed3ed3a3",
     "/assets/img/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/img/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/img/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -64,16 +69,19 @@
     "/assets/img/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/assets/img/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/assets/img/icon.png": "f3d3652d29f4cf4f7d3e3c8eea27c2b99d16a27d",
+    "/assets/img/mark.svg": "323920fb3c1a3891ecae67296bd2e0e70560ed72",
+    "/assets/img/menu_open_black.svg": "5853b0f5098fdf9ab369c18dc3bfdfdac39e404e",
+    "/assets/img/menu_open_ligth.svg": "d197eed1449b148b412a49bbd388dd7b09337d09",
     "/assets/img/moon.svg": "abc853211d7dc1194b5fcb4ae74c1241b52be9d0",
     "/assets/img/sun.svg": "8acfdf0c508739c848f699d311eadd4f496f35f1",
     "/assets/menuBiblia.json": "7526687c94c2b975608701692ff452c0f53f5ec0",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "063c87bea21d9f224da890ec06a97e684957d258",
-    "/main.2927760b01cc43a9.js": "c15cc86ccd459256e110a468727137d9b06d3fb0",
+    "/index.html": "4d1fa86b1f9cf5a4ad126178891e41f8d69f12c6",
+    "/main.4375af8b2d1d5953.js": "78c91e821d4aabada4b8a10495d467bd83460634",
     "/manifest.webmanifest": "07c80832f0e8553e90e92d30f6b7f831e393f7fc",
     "/polyfills.abb180958462d880.js": "cf4e13994b93ce41fa796c27a2237c6a1fe17059",
     "/runtime.adcb86ccc5605af3.js": "5468665199c4efc6365d2c92bf9db71db19be2b3",
-    "/styles.5716664aa6d87d93.css": "85fbd8a34dc69527b9160ec6ba61e9f41122d2c4"
+    "/styles.de25103ce6f57c3b.css": "486a30565f18256766ae9e0857cd06095a084534"
   },
   "navigationUrls": [
     {

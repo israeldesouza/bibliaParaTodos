@@ -49,9 +49,7 @@ export class HomeComponent implements OnInit {
 				this.bookSelected = args;
 				this.saveLastSelectedBook();
 			},
-			error: (e) => {
-				throwError('Livro Não encontrado!!!');
-			},
+			error: (e) => console.error('Livro Não encontrado!!!'),
 		});
 	}
 

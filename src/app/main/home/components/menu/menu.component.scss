@@ -1,149 +1,131 @@
 @import '../../../../../scss/colors.scss';
 
-$menu-size: 16rem;
+$menu-size: 100%;
 
-.livros {
+.livros-chapters {
 	width: 0;
 	position: fixed;
 
-	bottom: 7.033rem;
-	right: -1px;
+	bottom: 0;
+	right: 0;
 
-	height: 20.59rem;
+	height: 100%;
 
-	border-radius: 24px 0 0 0;
 	overflow-y: auto;
 	overflow-x: hidden;
 
-	ul {
-		li {
-			padding: 0.5rem 1rem;
-			color: $light-mode-color;
-			font-weight: 400;
+	background-color: $info-color;
+
+	transition-duration: 0.3s;
+	transition-property: transform;
+
+	.livros {
+		p {
+			font-size: 1.5rem;
+			font-weight: 500;
+		}
+
+		input:focus-visible {
+			outline: none;
+		}
+
+		input[type='text'] {
+			margin-top: 1rem;
+			height: 2rem;
+			width: 100%;
+			padding: 0 1rem;
+			border-radius: 16px;
+			border: none;
+			border: solid 1px rgba(95, 95, 95, 0.2);
+		}
+
+		margin-bottom: 1rem;
+	}
+
+	.chapters {
+		display: flex;
+		justify-content: space-between;
+		p {
+			font-size: 1.5rem;
+			font-weight: 500;
+
+			display: flex;
+			align-items: center;
 			cursor: pointer;
 
-			&.active {
-				background-color: $dark-mode-hove-color;
+			img {
+				width: 1.5rem;
+				margin-right: 1rem;
 			}
 		}
 
-		li:hover {
-			background-color: $dark-mode-hove-color;
+		margin-bottom: 1rem;
+	}
+
+	&.dark {
+		background-color: $dark-mode-menu-color;
+
+		.livros,
+		.chapters {
+			p {
+				color: $light-mode-color;
+			}
 		}
 	}
 
-	background-color: $info-color;
-
-	transition-duration: 0.3s;
-	transition-property: transform;
-
-	&.dark {
-		background-color: $dark-mode-menu-color;
-	}
-
 	&.expanded-menu {
 		width: $menu-size;
+		padding: 1rem 3.5rem 1rem 1rem;
 		transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
 	}
 
 	transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: 1rem;
+
+		font-weight: 500;
+
+		.card {
+			background: rgba(215, 212, 212, 0.26);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+
+			border-radius: 4px;
+			height: 4rem;
+			cursor: pointer;
+
+			img {
+				position: absolute;
+				top: -4px;
+				right: 5px;
+				width: 2rem;
+			}
+		}
+
+		&.dark {
+			color: $light-mode-color;
+		}
+	}
 }
 
-.livros::-webkit-scrollbar {
-	width: 4px;
+.livros-chapters::-webkit-scrollbar {
+	width: 1px;
 }
 
-.livros::-webkit-scrollbar-thumb {
+.livros-chapters::-webkit-scrollbar-thumb {
 	background: $light-mode-color;
-}
-
-.btn-mobile {
-	width: 3rem;
-	height: 3rem;
-
-	display: flex;
-	padding-left: 1rem;
-	align-items: center;
-
-	border-radius: 24px 0 0 24px;
-
-	position: fixed;
-
-	bottom: 4rem;
-	right: -1px;
-
-	p {
-		margin-left: 0.5rem;
-		color: $light-mode-color;
-		font-weight: 500;
-	}
-
-	background-color: $info-color;
-
-	cursor: pointer;
-	transition-duration: 0.3s;
-	transition-property: transform;
-
-	&.dark {
-		background-color: $dark-mode-menu-color;
-	}
-
-	&.expanded-menu {
-		width: $menu-size;
-		border-radius: 0 0 0 24px;
-		transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
-	}
-
-	transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
-
-	.arrow-rigth {
-		margin-left: 8rem;
-	}
-}
-
-.btn-back {
-	position: fixed;
-
-	width: 0;
-	bottom: 27.7rem;
-	right: -1rem;
-
-	height: 3rem;
-
-	display: flex;
-	padding: 0 0.5rem;
-	align-items: center;
-
-	transition-duration: 0.3s;
-	transition-property: transform;
-
-	cursor: pointer;
-
-	p {
-		margin-left: 0.5rem;
-		color: $light-mode-color;
-		font-weight: 500;
-	}
-
-	border-radius: 24px 0 0 0;
-	background-color: $info-color;
-
-	&.dark {
-		background-color: $dark-mode-menu-color;
-	}
-
-	&.expanded-menu {
-		width: 7rem;
-		transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
-	}
-	transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
 }
 
 .btn {
 	position: fixed;
 	cursor: pointer;
 
-	background: rgb(215 212 212 / 10%);
+	background: rgb(215 212 212 / 0.5);
 
 	display: flex;
 	justify-content: center;
@@ -157,19 +139,40 @@ $menu-size: 16rem;
 
 	font-weight: 600;
 
-	&.dark {
-		color: $light-mode-color;
-	}
-
 	&.theme {
-		top: 1rem;
+		top: 4rem;
 	}
 
 	&.plus {
-		top: 5rem;
+		top: 8rem;
 	}
 
 	&.anyLess {
-		top: 8rem;
+		top: 11rem;
+	}
+
+	&.book {
+		bottom: 6rem;
+
+		writing-mode: vertical-lr;
+		text-orientation: upright;
+
+		height: fit-content;
+		padding: 0.5rem 0;
+
+		img {
+			margin-top: 0.5rem;
+			width: 2rem;
+		}
+
+		.rotate {
+			transform: rotate(180deg);
+		}
+
+		border-radius: 4px;
+	}
+
+	&.dark {
+		color: $light-mode-color;
 	}
 }

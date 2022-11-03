@@ -1,56 +1,86 @@
-<div class="menu-rigth">
-	<div
-		class="livros"
-		[ngClass]="{ dark: theme === 'dark', 'expanded-menu': expanded }"
-	>
-		<ul *ngIf="!btnBack">
-			<ng-container *ngFor="let livro of menuBiblia">
-				<li
-					(click)="selectBook(livro.livro)"
-					[ngClass]="{ active: livro.livro === livroSelected.livro }"
-				>
-					{{ livro.livro }}
-				</li>
-			</ng-container>
-		</ul>
-		<ul *ngIf="btnBack">
-			<ng-container *ngFor="let chapter of chapters">
-				<li
-					[ngClass]="{
-						active: chapter.chapterNumber === livroSelected.chapter
-					}"
-					(click)="selectChapter(chapter.chapterNumber)"
-				>
-					Capítulo {{ chapter.chapterNumber + 1 }}
-				</li>
-			</ng-container>
-		</ul>
-	</div>
-	<div
-		class="btn-mobile"
-		[ngClass]="{ dark: theme === 'dark', 'expanded-menu': expanded }"
-		(click)="expandedMenu()"
-	>
-		<img src="assets/img/book.svg" alt="Book image" />
+<div
+	class="livros-chapters"
+	[ngClass]="{ dark: theme === 'dark', 'expanded-menu': expanded }"
+>
+	<div class="livros" *ngIf="!showCapters; else chaptersTemplate">
 		<p>Livros</p>
-		<img
-			class="arrow-rigth"
-			src="assets/img/caret-double-right-bold.svg"
-			alt="Book image"
+		<input
+			type="text"
+			placeholder="Buscar livro..."
+			(input)="searchBooks($event.target)"
 		/>
 	</div>
+	<ng-template #chaptersTemplate>
+		<div class="chapters">
+			<p>Captúlos</p>
 
-	<div
-		class="btn-back"
-		[ngClass]="{
-			dark: theme === 'dark',
-			'expanded-menu': expanded && btnBack
-		}"
-		(click)="comeBack()"
-	>
-		<img src="assets/img/caret-left-bold.svg" alt="back" />
-		<p>Voltar</p>
+			<p (click)="comeBack()">
+				<img
+					*ngIf="theme === 'dark'"
+					src="assets/img/caret-left-bold-ligth.svg"
+					alt="Icone para voltar aos livros"
+				/>
+				<img
+					*ngIf="theme === 'ligth'"
+					src="assets/img/caret-left-bold.svg"
+					alt="Icone para voltar aos livros"
+				/>
+				Voltar
+			</p>
+		</div>
+	</ng-template>
+	<div class="cards" [ngClass]="{ dark: theme === 'dark' }">
+		<ng-container *ngIf="!showCapters; else chapterTemplate">
+			<div
+				class="card"
+				*ngFor="let livro of filterBooks()"
+				(click)="selectBook(livro.livro)"
+			>
+				{{ livro.livro }}
+				<img
+					*ngIf="livroSelected.livro === livro.livro"
+					src="assets/img/mark.svg"
+					alt="Marcador"
+				/>
+			</div>
+		</ng-container>
+		<ng-template #chapterTemplate>
+			<ng-container *ngIf="showCapters">
+				<div
+					class="card chapter"
+					*ngFor="let chapter of chapters"
+					(click)="selectChapter(chapter.chapterNumber)"
+				>
+					{{ chapter.chapterNumber + 1 }}
+					<img
+						*ngIf="livroSelected.chapter === chapter.chapterNumber"
+						src="assets/img/mark.svg"
+						alt="Marcador"
+					/>
+				</div>
+			</ng-container>
+		</ng-template>
 	</div>
+</div>
+
+<div
+	class="btn book"
+	[ngClass]="{ dark: theme === 'dark' }"
+	(click)="expandedMenu()"
+>
+	MENU
+	<img
+		[ngClass]="{ rotate: expanded }"
+		*ngIf="theme === 'ligth'"
+		src="assets/img/menu_open_black.svg"
+		alt="Book image"
+	/>
+	<img
+		[ngClass]="{ rotate: expanded }"
+		*ngIf="theme === 'dark'"
+		src="assets/img/menu_open_ligth.svg"
+		alt="Book image"
+	/>
 </div>
 
 <div

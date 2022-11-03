@@ -10,3 +10,11 @@
 ul {
 	list-style-type: none;
 }
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(87, 87, 87, 0.527);
+}
