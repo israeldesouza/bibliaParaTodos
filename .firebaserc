@@ -1,7 +1,4 @@
 {
-  "projects": {
-    "default": "abibliadetodos"
-  },
   "targets": {
     "abibliadetodos": {
       "hosting": {
@@ -10,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "abibliadetodos"
   }
 }
