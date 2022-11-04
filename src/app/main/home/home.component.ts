@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { throwError } from 'rxjs';
 
 import {
 	BibliaService,
@@ -11,6 +10,7 @@ import {
 	ILivroSelected,
 } from './../../shared/models/menu-biblia.interface';
 import { ThemeService } from 'src/app/shared/services/theme.service';
+import { AccessCountService } from './services/access-count.service';
 
 @Component({
 	selector: 'app-home',
@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit {
 	constructor(
 		private _route: ActivatedRoute,
 		private _bibliaService: BibliaService,
-		readonly themeService: ThemeService
+		readonly themeService: ThemeService,
+		private _deviceService: AccessCountService
 	) {}
 
 	ngOnInit(): void {
@@ -40,6 +41,8 @@ export class HomeComponent implements OnInit {
 		const lastSelectedBook = this._bibliaService.getLastSelectedBook();
 		if (lastSelectedBook) this.bookSelected = lastSelectedBook;
 		this.getBook(this.bookSelected);
+
+		this._deviceService.getAccessCount();
 	}
 
 	public getBook(args: ILivroSelected): void {
