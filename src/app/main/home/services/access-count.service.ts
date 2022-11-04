@@ -31,10 +31,13 @@ export class AccessCountService {
 	}
 
 	getAccessCount(): void {
-		const date = new Date().setHours(0, 0, 0, 0);
+		const currentDate = new Date();
+		const date = `${currentDate.getFullYear()}-${
+			currentDate.getMonth() + 1
+		}-${currentDate.getDate()}`;
 
 		this._deviceList.ref
-			.where('date', '==', new Date(date))
+			.where('date', '==', date)
 			.get()
 			.then((res) => {
 				const accessCount =
@@ -47,11 +50,14 @@ export class AccessCountService {
 
 				if (accessCount?.id) {
 					this._updateAccessCount(accessCount.id, {
-						date: accessCount.date,
+						date,
 						count: accessCount.count + 1,
 					});
 				} else {
-					this._addAccessCount({ date: new Date(date), count: 1 });
+					this._addAccessCount({
+						date,
+						count: 1,
+					});
 				}
 			});
 	}
@@ -72,6 +78,6 @@ export class AccessCountService {
 
 export interface IAccessCount {
 	id?: string;
-	date: Date;
+	date: string;
 	count: number;
 }
