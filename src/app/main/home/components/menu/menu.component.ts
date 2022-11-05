@@ -97,6 +97,8 @@ export class MenuComponent implements OnInit, OnDestroy {
 		this.versesNumber = this.chapters[chapter].versesNumber;
 
 		this.onSelectedLivro.next(this.livroSelected);
+
+		this.expandedMenu();
 	}
 
 	public selectVerse(verse: number): void {
