@@ -108,6 +108,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 	}
 
 	public comeBack(): void {
+		this._searchText = '';
 		this.showCapters = false;
 	}
 
