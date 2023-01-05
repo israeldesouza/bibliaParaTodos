@@ -31,7 +31,7 @@ $menu-size: 100%;
 
 		input[type='text'] {
 			margin-top: 1rem;
-			height: 2rem;
+			height: 2.5rem;
 			width: 100%;
 			padding: 0 1rem;
 			border-radius: 16px;
@@ -82,18 +82,23 @@ $menu-size: 100%;
 	transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
 
 	.cards {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		display: flex;
+		flex-wrap: wrap;
 		gap: 1rem;
 
 		font-weight: 500;
 
 		.card {
+			width: 18.875rem;
 			background: rgba(215, 212, 212, 0.26);
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			position: relative;
+
+			&.chapter {
+				width: 5.5rem;
+			}
 
 			border-radius: 4px;
 			height: 4rem;
